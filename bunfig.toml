@@ -1,0 +1,5 @@
+[test]
+preload = [
+    "./bun-setup/happy-dom.ts",
+    "./bun-setup/angular.ts",
+]
