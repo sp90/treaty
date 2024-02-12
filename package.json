@@ -23,7 +23,8 @@
     "ngxtension": "^2.0.0",
     "rxjs": "~7.8.0",
     "surrealdb.node": "^0.3.0",
-    "tslib": "^2.3.0"
+    "tslib": "^2.3.0",
+    "zone.js": "^0.14.3"
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "^17.2.0-rc.0",

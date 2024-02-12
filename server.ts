@@ -1,6 +1,6 @@
+import 'zone.js/node'
 import '@angular/compiler';
-import './src/mock-zone'
-
+// import './src/mock-zone'
 
 import { Elysia, t } from 'elysia';
 import { join } from 'path';
