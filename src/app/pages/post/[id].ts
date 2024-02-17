@@ -8,12 +8,12 @@ import {
   input,
 } from '@angular/core';
 import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
-import { ActivatedRouteSnapshot } from '@angular/router';
+import type { ActivatedRouteSnapshot } from '@angular/router';
 import { map } from 'rxjs';
-import { ApiService } from '../api.service';
+import { ApiService } from '../../api.service';
+import { type RoutingMeta } from 'treaty-utilities/routes';
 
-const fb = new FormBuilder();
-export const resolvePost = {
+const resolvePost = {
   post: (route: ActivatedRouteSnapshot) => {
     const res = inject(ApiService)
       .client.id[route.params['id']].get()
@@ -46,6 +46,15 @@ export const resolvePost = {
   },
 };
 
+const routerMeta: RoutingMeta = {
+  resolve: {
+    ...resolvePost,
+  },
+}
+
+const fb = new FormBuilder();
+
+
 @Component({
   selector: 'app-post',
   standalone: true,
@@ -63,7 +72,7 @@ export const resolvePost = {
   `,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class PostComponent {
+class PostComponent {
   private api = inject(HttpClient);
 
   post = input();
@@ -89,3 +98,5 @@ export default class PostComponent {
       .subscribe((res) => console.log('res: ', res));
   }
 }
+
+export { PostComponent, routerMeta }
